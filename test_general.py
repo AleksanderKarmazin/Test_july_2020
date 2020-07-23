@@ -7,7 +7,7 @@ from selenium.common.exceptions import ElementClickInterceptedException, NoSuchE
 
 @pytest.fixture(scope="class")
 def driver_init(request):
-    driver = webdriver.Firefox(executable_path='C:/Tools/geckodriver.exe')
+    driver = webdriver.Chrome(executable_path='C:/Tools/chromedriver.exe')
     request.cls.driver = driver
     driver.implicitly_wait(1)
     driver.maximize_window()
@@ -38,77 +38,77 @@ class Test_Class_01():
         driver.find_element_by_xpath("(//button[@type='button'])[26]").click()
         driver.find_element_by_xpath("//a[contains(text(),'Logout')]").click()
 
-    # ТС_02:Логин Blank user ID with blank password
-    def test_TC_02(self):
-        driver = self.driver
-        driver.get(URL)
-        time.sleep(3)
-        # Сценарий логина - Начало
-        driver.find_element_by_xpath("//a[contains(text(),'Sign IN')]").click()
-        driver.find_element_by_id("signin-login").clear()
-        driver.find_element_by_id("signin-login").send_keys("testcaseqa5@gmail.com")
-        driver.find_element_by_id("signin-pass").clear()
-        driver.find_element_by_id("signin-pass").send_keys("123456")
-        driver.find_element_by_xpath("(//button[@type='button'])[3]").click()
-        # Сценарий логина - Конец
-        time.sleep(5)
-        # log_out
-        driver.find_element_by_xpath("(//button[@type='button'])[26]").click()
-        driver.find_element_by_xpath("//a[contains(text(),'Logout')]").click()
-
-    # ТС_03:Логин Correct user ID with incorrect password
-    def test_TC_03(self):
-        driver = self.driver
-        driver.get(URL)
-        time.sleep(3)
-        # Сценарий логина - Начало
-        driver.find_element_by_xpath("//a[contains(text(),'Sign IN')]").click()
-        driver.find_element_by_id("signin-login").clear()
-        driver.find_element_by_id("signin-login").send_keys("testcaseqa5@gmail.com")
-        driver.find_element_by_id("signin-pass").clear()
-        driver.find_element_by_id("signin-pass").send_keys("123456")
-        driver.find_element_by_xpath("(//button[@type='button'])[3]").click()
-        # Сценарий логина - Конец
-        time.sleep(5)
-        # log_out
-        driver.find_element_by_xpath("(//button[@type='button'])[26]").click()
-        driver.find_element_by_xpath("//a[contains(text(),'Logout')]").click()
-
-    # ТС_04:Логин Incorrect user ID with correct password
-    def test_TC_04(self):
-        driver = self.driver
-        driver.get(URL)
-        time.sleep(3)
-        # Сценарий логина - Начало
-        driver.find_element_by_xpath("//a[contains(text(),'Sign IN')]").click()
-        driver.find_element_by_id("signin-login").clear()
-        driver.find_element_by_id("signin-login").send_keys("testcaseqa5@gmail.com")
-        driver.find_element_by_id("signin-pass").clear()
-        driver.find_element_by_id("signin-pass").send_keys("123456")
-        driver.find_element_by_xpath("(//button[@type='button'])[3]").click()
-        # Сценарий логина - Конец
-        time.sleep(5)
-        # log_out
-        driver.find_element_by_xpath("(//button[@type='button'])[26]").click()
-        driver.find_element_by_xpath("//a[contains(text(),'Logout')]").click()
-
-    # ТС_05:Логин Incorrect user ID with incorrect password
-    def test_TC_05(self):
-        driver = self.driver
-        driver.get(URL)
-        time.sleep(3)
-        # Сценарий логина - Начало
-        driver.find_element_by_xpath("//a[contains(text(),'Sign IN')]").click()
-        driver.find_element_by_id("signin-login").clear()
-        driver.find_element_by_id("signin-login").send_keys("testcaseqa5@gmail.com")
-        driver.find_element_by_id("signin-pass").clear()
-        driver.find_element_by_id("signin-pass").send_keys("123456")
-        driver.find_element_by_xpath("(//button[@type='button'])[3]").click()
-        # Сценарий логина - Конец
-        time.sleep(5)
-        # log_out
-        driver.find_element_by_xpath("(//button[@type='button'])[26]").click()
-        driver.find_element_by_xpath("//a[contains(text(),'Logout')]").click()
+    # # ТС_02:Логин Blank user ID with blank password
+    # def test_TC_02(self):
+    #     driver = self.driver
+    #     driver.get(URL)
+    #     time.sleep(3)
+    #     # Сценарий логина - Начало
+    #     driver.find_element_by_xpath("//a[contains(text(),'Sign IN')]").click()
+    #     driver.find_element_by_id("signin-login").clear()
+    #     driver.find_element_by_id("signin-login").send_keys("testcaseqa5@gmail.com")
+    #     driver.find_element_by_id("signin-pass").clear()
+    #     driver.find_element_by_id("signin-pass").send_keys("123456")
+    #     driver.find_element_by_xpath("(//button[@type='button'])[3]").click()
+    #     # Сценарий логина - Конец
+    #     time.sleep(5)
+    #     # log_out
+    #     driver.find_element_by_xpath("(//button[@type='button'])[26]").click()
+    #     driver.find_element_by_xpath("//a[contains(text(),'Logout')]").click()
+    #
+    # # ТС_03:Логин Correct user ID with incorrect password
+    # def test_TC_03(self):
+    #     driver = self.driver
+    #     driver.get(URL)
+    #     time.sleep(3)
+    #     # Сценарий логина - Начало
+    #     driver.find_element_by_xpath("//a[contains(text(),'Sign IN')]").click()
+    #     driver.find_element_by_id("signin-login").clear()
+    #     driver.find_element_by_id("signin-login").send_keys("testcaseqa5@gmail.com")
+    #     driver.find_element_by_id("signin-pass").clear()
+    #     driver.find_element_by_id("signin-pass").send_keys("123456")
+    #     driver.find_element_by_xpath("(//button[@type='button'])[3]").click()
+    #     # Сценарий логина - Конец
+    #     time.sleep(5)
+    #     # log_out
+    #     driver.find_element_by_xpath("(//button[@type='button'])[26]").click()
+    #     driver.find_element_by_xpath("//a[contains(text(),'Logout')]").click()
+    #
+    # # ТС_04:Логин Incorrect user ID with correct password
+    # def test_TC_04(self):
+    #     driver = self.driver
+    #     driver.get(URL)
+    #     time.sleep(3)
+    #     # Сценарий логина - Начало
+    #     driver.find_element_by_xpath("//a[contains(text(),'Sign IN')]").click()
+    #     driver.find_element_by_id("signin-login").clear()
+    #     driver.find_element_by_id("signin-login").send_keys("testcaseqa5@gmail.com")
+    #     driver.find_element_by_id("signin-pass").clear()
+    #     driver.find_element_by_id("signin-pass").send_keys("123456")
+    #     driver.find_element_by_xpath("(//button[@type='button'])[3]").click()
+    #     # Сценарий логина - Конец
+    #     time.sleep(5)
+    #     # log_out
+    #     driver.find_element_by_xpath("(//button[@type='button'])[26]").click()
+    #     driver.find_element_by_xpath("//a[contains(text(),'Logout')]").click()
+    #
+    # # ТС_05:Логин Incorrect user ID with incorrect password
+    # def test_TC_05(self):
+    #     driver = self.driver
+    #     driver.get(URL)
+    #     time.sleep(3)
+    #     # Сценарий логина - Начало
+    #     driver.find_element_by_xpath("//a[contains(text(),'Sign IN')]").click()
+    #     driver.find_element_by_id("signin-login").clear()
+    #     driver.find_element_by_id("signin-login").send_keys("testcaseqa5@gmail.com")
+    #     driver.find_element_by_id("signin-pass").clear()
+    #     driver.find_element_by_id("signin-pass").send_keys("123456")
+    #     driver.find_element_by_xpath("(//button[@type='button'])[3]").click()
+    #     # Сценарий логина - Конец
+    #     time.sleep(5)
+    #     # log_out
+    #     driver.find_element_by_xpath("(//button[@type='button'])[26]").click()
+    #     driver.find_element_by_xpath("//a[contains(text(),'Logout')]").click()
 
 
 
