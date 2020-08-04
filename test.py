@@ -19,8 +19,8 @@ class Test_Class_01():
         login.enter_password("123456")
         login.click_login()
         homepage = HomePage(driver)
-        homepage.open_profile_menu()
-        homepage.click_logout()
+        # homepage = HomePage(driver)
+        # homepage.open_profile_menu()
 
 
     # ТС_1.2. Логин с пустым  полем ID пользователя  и пустым полем  паролем
